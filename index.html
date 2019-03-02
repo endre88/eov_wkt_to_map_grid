@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>EOV-WKT-to-Map_Grid</title>
+  
+  
+  <link rel='stylesheet' href='https://openlayers.org/en/v4.6.5/css/ol.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://openlayers.org/en/v5.3.0/css/ol.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div id="egesz">
+   <div id="r" class="">
+      <div id="EOV">
+         <label for="uname">EOV WKT :  </label>
+
+         <textarea rows="5" cols="50" id="uname" maxlength="60000" placeholder="POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))" onclick="this.select()" data-toggle="tooltip" data-placement="right" title="Az alábbi mezőben add meg a jelzett formátumban a polygont:">POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))</textarea>
+      
+      </div>
+      <div id="gombok">
+         <button id="gomb" class="btn btn-primary" onclick="myFunction()">Térképre vele!</button>
+         <button id="refresh" class="btn btn-primary">Térkép alaphelyzetbe</button>
+      </div>
+      <div id="e-k">
+         <div><label for="convert">Koordináta párok: </label>
+    <textarea rows="5" cols="50" id="convert"  data-toggle="tooltip" data-placement="right" title="A polygont koordináta párokra bontott stílusban itt találod (automatikusan másolódik kattintást követően):" onclick="this.select(); document.execCommand('copy')"></textarea>
+         </div>
+      </div>
+            
+      <div class="filter">
+         <div>   
+            <button id="filter" class="btn btn-primary" onclick="valogat()" onclick="filter()" >Nagyíts a településre</button>
+         </div>
+         <div id="telepulesek_div">
+            <input type="text" id="search" name="search" style="width: 165px;" onkeyup="filter()" placeholder="Add meg a települést..."> 
+         </div>  
+         <div>
+            <select id="telepulesek" size="10" style="width: 165px;height: 170px;"></select>
+         </div> 
+      </div>
+
+   </div> 
+   
+   
+   
+   
+   
+   
+   
+   <div id="map" class="map">
+   </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4-src.js'></script>
+<script src='https://openlayers.org/en/v4.6.5/build/ol.js'></script>
+<script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
