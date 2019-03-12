@@ -36,7 +36,6 @@ var osmLayer = new ol.layer.Tile({
 //A gombra kattintás során elindul az átalakítás a beírt Polygon((x1 y1, x2 y2, x3 y3,....)) érték alapján
 document.getElementById('gomb').addEventListener("click", alakito) /*   var value =  
   //Javítva getelementbyID-ra és addeventlistenerrel megoldva natív JS
-
 /*--------------------------------------------------------------------------------*/
 
 $("#uname").on("change keyup paste", function() {
@@ -54,7 +53,7 @@ $(".map").on('mousemove', function (e){
 document.getElementById("#coord").innerHTML = str});
 
 
-var url="https://raw.githubusercontent.com/endre88/module3_solution/master/telepulesek_WKT_no_geometry_full.json";
+var url="https://raw.githubusercontent.com/endre88/eov_wkt_to_map_grid/master/telepulesek_WKT_no_geometry_full.json";
 var $select = $('#telepulesek');
 $.getJSON(url,//     https://api.myjson.com/bins/15sl2k     abc sorrendű json (http://novicelab.org/jsonabc/) https://api.myjson.com/bins/8ss1c
 function (data) {
@@ -71,7 +70,7 @@ function valogat(){ //geom kinyerése
    var ch=document.getElementById("telepulesek").value
    console.log(ch);
    
-   var url="https://raw.githubusercontent.com/endre88/module3_solution/master/telepulesek_WKT_no_geometry_full.json";
+   var url="https://raw.githubusercontent.com/endre88/eov_wkt_to_map_grid/master/telepulesek_WKT_no_geometry_full.json";
 $.getJSON(url,//     https://api.myjson.com/bins/15sl2k     abc sorrendű json (http://novicelab.org/jsonabc/) https://api.myjson.com/bins/8ss1c
  function (data) {
    var geom="";
@@ -205,7 +204,6 @@ function alakito(){
       });
    
       var typeSelect = document.getElementById('type');
-
       var draw; // global so we can remove it later
       function addInteraction() {
         var value = typeSelect.value;
@@ -217,8 +215,6 @@ function alakito(){
           map.addInteraction(draw);
         }
       }
-
-
       /**
        * Handle change event.
        
@@ -226,6 +222,5 @@ function alakito(){
         map.removeInteraction(draw);
         addInteraction();
       };
-
       addInteraction();
 */

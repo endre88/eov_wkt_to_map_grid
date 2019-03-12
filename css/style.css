@@ -19,13 +19,12 @@
 }
 
 .filter div{
-      margin-bottom:10px;
+    margin-bottom:10px;
 }
 
 textarea{ 
    /* will prevent resizing horizontally */
     min-width:100%;
-    max-width:100%;
     resize:horizontal;
     font-size:0.7em;
 }
@@ -47,15 +46,15 @@ body,html{
 }
 
 #egesz{
-display: grid;
-grid-template-columns:30% 70%;
-height: 100%;
+    display: grid;
+    grid-template-columns:30fr 70fr;
+    height: 100vh;
 }
 
 #r{
    margin-top:20px;
    display:grid;
-   grid-template-rows: 120px 50px 120px 120px;
+   grid-template-rows: 12rem 5rem 11rem 13rem
 }
 
 #EOV{
@@ -66,10 +65,46 @@ height: 100%;
    margin:0px 3%;
 }
 #gombok{
-   margin-left:53%;
-   
+    margin:0 8px;
+    padding:0 5px;
+    display:grid;
+    grid-template-columns:14rem 20rem;
+    grid-template-rows:4rem;
+    grid-gap:1rem; 
 }
 
-#refresh{
-   margin-top:0.3em;
+
+
+@media (max-width:1250px){
+    #r{
+        margin-top:20px;
+        display:grid;
+        grid-template-rows: 12rem 10rem 11rem 13rem;
+   }
+    #gombok{
+        display: grid;
+        grid-template-columns: 17rem;
+        grid-template-rows: 4vh 4vh;
+    }
+    #refresh, #gomb{
+        text-align:center;
+    }
+    .text-area{
+        max-width:150px;
+}
+}
+
+@media (max-width:720px){
+    #egesz{
+        display: grid;
+        grid-template-columns:auto;
+        grid-template-rows: 70vh 70vh 10vh;
+    }
+        #map{
+           height: 25rem;
+           border-left:solid #55bb8f;
+           padding:0%;
+           padding-bottom:0px;
+}
+
 }
