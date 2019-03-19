@@ -94,7 +94,7 @@ body,html{
 }
 }
 
-@media (max-width:720px){
+@media only screen and (max-width: 750px){
     #egesz{
         display: grid;
         grid-template-columns:auto;
