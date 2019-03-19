@@ -54,7 +54,7 @@ body,html{
 #r{
    margin-top:20px;
    display:grid;
-   grid-template-rows: 12rem 5rem 11rem 13rem
+   grid-template-rows: 12rem 5rem 11rem 13rem;
 }
 
 #EOV{
@@ -77,7 +77,7 @@ body,html{
 
 @media (max-width:1250px){
     #r{
-        margin-top:20px;
+        margin-top:0;
         display:grid;
         grid-template-rows: 12rem 10rem 11rem 13rem;
    }
@@ -97,9 +97,9 @@ body,html{
 
 @media only screen and (max-width: 750px){
     #egesz{
-        display: grid;
-        grid-template-columns:auto;
-        grid-template-rows: 70vh 70vh 10vh;
+        display:  grid;
+        grid-template-columns:100%;
+        grid-template-rows: 70vh 70vh 10vh 10vh;
     }
         #map{
            height: 25rem;
@@ -107,5 +107,13 @@ body,html{
            padding:0%;
            padding-bottom:0px;
 }
+    #gombok{
+        display: grid;
+        grid-template-columns: 12rem 16rem;
+        max-height:40px;
+    }
+    #r{
+        grid-template-rows: 12rem 4rem 11rem 5rem;
+    }
 
 }
