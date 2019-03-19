@@ -84,10 +84,11 @@ body,html{
     #gombok{
         display: grid;
         grid-template-columns: 17rem;
-        grid-template-rows: 4vh 4vh;
+        grid-template-rows: 30px 30px;
     }
     #refresh, #gomb{
         text-align:center;
+        min-height:30px;
     }
     .text-area{
         max-width:150px;
