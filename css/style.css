@@ -7,7 +7,7 @@
    font-size:20px;
 }
 
-#telepulesek_div div{
+#telepulesek_div{
       margin-bottom:10px;
 
 }
@@ -103,10 +103,12 @@ body,html{
     }
     
     #map{
-           height: 25rem;
-           border-left:solid #55bb8f;
-           padding:0%;
-           padding-bottom:0px;
+        height: 100%;
+        border-left:solid #55bb8f;
+        margin-top: -100px;
+        padding:0%;
+        padding-bottom:0px;
+        width:100%;
     }
     }
     #refresh, #gomb, #filter{
@@ -119,7 +121,7 @@ body,html{
 
     
     #e-k{
-        margin-top:35px;
+        margin-top:30px;
         display: grid;
         grid-template-columns: 12em;
         grid-gap:5px;
@@ -127,9 +129,9 @@ body,html{
 
 }
     textarea{
-    height: 5em;
-    min-width:10em;
-    font-size:0.7em;
+        height: 5em;
+        max-width:10em;
+        font-size:0.7em;
 }
     #EOV{
         display: grid;
@@ -141,18 +143,19 @@ body,html{
         position: absolute;
         right:0px;
         top:15px;
-        width:160px;
+        width:140px;
     }
-    #filter{
-        margin-left:9px;
-    }
-
-.filter > *{
-    max-width:100px;
-
+    #gombok{
+        margin:-30px 8px;
+        padding:0 5px;
 }
-    input[type=text]{
-        max-width:100px;
-    }
-    
+
+    #filter, 
+    input[type=text],
+    #telepulesek{
+        max-width:140px;
+    }    
+   
+
+
 }
