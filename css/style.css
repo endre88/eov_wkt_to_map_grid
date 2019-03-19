@@ -108,11 +108,6 @@ body,html{
            padding:0%;
            padding-bottom:0px;
     }
-    #gombok{
-        position:absolute;
-        right:-20px;
-        top:10px;
-        max-height:40px;
     }
     #refresh, #gomb, #filter{
         font-size: 12px;
@@ -124,7 +119,7 @@ body,html{
 
     
     #e-k{
-        margin-top:-35px;
+        margin-top:35px;
         display: grid;
         grid-template-columns: 12em;
         grid-gap:5px;
@@ -145,11 +140,19 @@ body,html{
     .filter{
         position: absolute;
         right:0px;
-        top:85px;
+        top:15px;
         width:160px;
     }
     #filter{
         margin-left:9px;
+    }
+
+.filter > *{
+    max-width:100px;
+
+}
+    input[type=text]{
+        max-width:100px;
     }
     
 }
