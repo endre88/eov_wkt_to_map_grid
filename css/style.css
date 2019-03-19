@@ -95,25 +95,61 @@ body,html{
 }
 }
 
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 720px){
     #egesz{
-        display:  grid;
+        display: grid;
         grid-template-columns:100%;
         grid-template-rows: 70vh 70vh 10vh 10vh;
     }
-        #map{
+    
+    #map{
            height: 25rem;
            border-left:solid #55bb8f;
            padding:0%;
            padding-bottom:0px;
-}
+    }
     #gombok{
-        display: grid;
-        grid-template-columns: 12rem 16rem;
+        position:absolute;
+        right:-20px;
+        top:10px;
         max-height:40px;
+    }
+    #refresh, #gomb, #filter{
+        font-size: 12px;
+        width:12em;
     }
     #r{
         grid-template-rows: 12rem 4rem 11rem 5rem;
     }
 
+    
+    #e-k{
+        margin-top:-35px;
+        display: grid;
+        grid-template-columns: 12em;
+        grid-gap:5px;
+        grid-template-rows: 20px 20px;
+
+}
+    textarea{
+    height: 5em;
+    min-width:10em;
+    font-size:0.7em;
+}
+    #EOV{
+        display: grid;
+        grid-template-columns: 12em;
+        grid-gap:5px;
+        grid-template-rows: 20px 20px;
+}
+    .filter{
+        position: absolute;
+        right:0px;
+        top:85px;
+        width:160px;
+    }
+    #filter{
+        margin-left:9px;
+    }
+    
 }
