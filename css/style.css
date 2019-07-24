@@ -3,6 +3,13 @@
    font-size:15px;
    box-sizing:border-box;
 }
+.tooltip { pointer-events: none;
+    margin-right: 35px;
+}
+
+
+
+
 .fa-info-circle{
    font-size:20px;
 }
@@ -12,10 +19,26 @@
 
 }
 
+#telepulesek{
+   width: 165px;
+   height: 170px;
+}
+
+#search{
+   width:16rem;
+   border-radius:5px;
+}
+
+#telepulesek_div{
+   margin:0;
+}
+
 .filter{
-   display:grid;
-   grid-template-columns:200px;
+   display:flex;
+   flex-direction:column;
    margin:10px 3%;
+   width:16rem;
+
 }
 
 .filter div{
@@ -24,7 +47,7 @@
 
 textarea{ 
    /* will prevent resizing horizontally */
-    min-width:100%;
+    min-width:100px;
     resize:horizontal;
     font-size:0.7em;
 }
@@ -40,12 +63,11 @@ body,html{
 
 #map{
    height: 100%;
-   border-left:solid #55bb8f;
    padding:0%;
    padding-bottom:0px;
 }
 
-#egesz{
+/*#egesz{
     display: grid;
     grid-template-columns:30fr 70fr;
     height: 100vh;
@@ -54,17 +76,17 @@ body,html{
 #r{
    margin-top:20px;
    display:grid;
-   grid-template-rows: 12rem 5rem 11rem 13rem;
-}
+   grid-template-rows: 12rem 5rem 11rem 13rem
+}*/
 
 #EOV{
-   margin:0px 3%;
+   margin:0px 5px;
 }
 
 #e-k{
-   margin:0px 3%;
+   margin:0px 5px;
 }
-#gombok{
+/*#gombok{
     margin:0 8px;
     padding:0 5px;
     display:grid;
@@ -72,90 +94,133 @@ body,html{
     grid-template-rows:4rem;
     grid-gap:1rem; 
 }
+*/
 
 
-
-@media (max-width:1250px){
+/*@media all and (max-width:1250px) and (min-width:721px){
     #r{
-        margin-top:0;
+        margin-top:20px;
         display:grid;
         grid-template-rows: 12rem 10rem 11rem 13rem;
    }
     #gombok{
         display: grid;
         grid-template-columns: 17rem;
-        grid-template-rows: 30px 30px;
+        grid-template-rows: 4vh 4vh;
     }
     #refresh, #gomb{
         text-align:center;
-        min-height:30px;
     }
     .text-area{
         max-width:150px;
 }
-}
+}*/
 
-@media only screen and (max-width: 720px){
+/*@media all and (max-width:720px){
     #egesz{
         display: grid;
-        grid-template-columns:100%;
-        grid-template-rows: 70vh 70vh 10vh 10vh;
+        grid-template-columns:auto;
+        grid-template-rows: 600px 500px;
     }
-    
-    #map{
-        height: 100%;
-        border-left:solid #55bb8f;
-        margin-top: -100px;
-        padding:0%;
-        padding-bottom:0px;
-        width:100%;
-    }
-    
-    #refresh, #gomb, #filter{
-        font-size: 12px;
-        width:12em;
-    }
-    #r{
-        grid-template-rows: 12rem 4rem 11rem 5rem;
-    }
+        #map{
+           height: 20rem;
+           border-left:solid #55bb8f;
+           padding:0%;
+           padding-bottom:0px;
+}
+   #egesz{
+      height:100vh;
+   }
+   body{
+   overflow-y:scroll;
+   -webkit-overflow-scrolling: touch;
+   }
+   *{
+      overflow-y:scroll;
+      -webkit-overflow-scrolling: touch;}
+}*/
 
-    
-    #e-k{
-        margin-top:30px;
-        display: grid;
-        grid-template-columns: 12em;
-        grid-gap:5px;
-        grid-template-rows: 20px 20px;
-
-}
-    textarea{
-        height: 5em;
-        max-width:10em;
-        font-size:0.7em;
-}
-    #EOV{
-        display: grid;
-        grid-template-columns: 12em;
-        grid-gap:5px;
-        grid-template-rows: 20px 20px;
-}
-    .filter{
-        position: absolute;
-        right:0px;
-        top:15px;
-        width:140px;
-    }
-    #gombok{
-        margin:-30px 8px;
-        padding:0 5px;
-}
-
-    #filter, 
-    input[type=text],
-    #telepulesek{
-        max-width:140px;
-    }    
+/*@media (min-width:768px){*/
+   #r{
+      position:absolute;
+      width:50%;
+      z-index:9999;
+   }
+   #map canvas{
+      border:1px solid;
+      border-radius:10px;
+   }
+   #map{
+      width:98%;
+      height:97vh;
+      margin:5px auto;
+      position:relative;
+      overflow:hidden;
+   }
    
-
-
-}
+   #EOV, #gombok,#e-k{
+      top:150px;
+      position:absolute;
+      z-index:100;
+      right:-450px;
+   }
+   
+   #telepulesek{
+      right:0px;
+      display:none;
+   }
+   .filter{
+      position:absolute;
+      margin:0;
+      padding:0;
+      z-index:300;
+      right:-165px;
+      top:10px;
+   }
+   #filter{
+      display:none;
+   }
+   #valogat{
+      display:none;
+   }
+   #gombok{
+      top:260px;
+   }
+   #e-k{
+      top:160px;
+   }
+   #EOV{
+      top:50px;
+   }
+   #searching{
+      position:absolute;
+      z-index:300;
+      top:11px;
+      right:0px;
+      border:1px solid black;
+      padding:1px;
+      background-color:#44aaff;
+      color:white;
+   }
+   #EOV_slide{
+      position:absolute;
+      z-index:300;
+      top:50px;
+      right:0px;
+      border:1px solid black;
+      padding:3px 6px;
+      background-color:#44aaff;
+      color:white;
+   }
+   #arrow1{
+      color:white;
+   }
+   
+   .fa-search, .fa-chevron-right{
+      margin:0 5px 0 ;
+      color:white;
+   }
+   a{
+      border-right:solid black;
+   }
+/*}*/
