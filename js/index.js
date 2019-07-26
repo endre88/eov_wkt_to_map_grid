@@ -31,10 +31,10 @@ var osmLayer = new ol.layer.Tile({
 
         map.addLayer(osmLayer);
         map.setView(view);
-*/
+
 
 //A gombra kattintás során elindul az átalakítás a beírt Polygon((x1 y1, x2 y2, x3 y3,....)) érték alapján
-document.getElementById('gomb').addEventListener("click", alakito) /*   var value =  
+document.getElementById('gomb').addEventListener("click", alakito)   var value =  
   //Javítva getelementbyID-ra és addeventlistenerrel megoldva natív JS
 
 /*--------------------------------------------------------------------------------*/
