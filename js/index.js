@@ -5,7 +5,7 @@
 // koordinátát írja ki az egér mozgatásra.
 
 
-
+/*
 var myProjectionName = "EPSG:23700";
 proj4.defs(
 myProjectionName,
@@ -31,19 +31,19 @@ var osmLayer = new ol.layer.Tile({
 
         map.addLayer(osmLayer);
         map.setView(view);
-
+*/
 
 //A gombra kattintás során elindul az átalakítás a beírt Polygon((x1 y1, x2 y2, x3 y3,....)) érték alapján
 document.getElementById('gomb').addEventListener("click", alakito) /*   var value =  
   //Javítva getelementbyID-ra és addeventlistenerrel megoldva natív JS
 
 /*--------------------------------------------------------------------------------*/
-
+/*
 $("#uname").on("change keyup paste", function() {
 });
 $("#refresh").on("click", function() {
    /*var elem = document.getElementById('map');
- elem.parentNode.removeChild(elem);*/
+ elem.parentNode.removeChild(elem);
    window.location.reload(true);
 });
 
@@ -230,7 +230,7 @@ function alakito(){
       addInteraction();
 */
 /*Átírni sima js-be addeventlistenerekkel*/
-
+*/
 
 $( document ).ready(function() {
 
