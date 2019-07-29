@@ -239,7 +239,7 @@ $( document ).ready(function() {
  
 function toleft1(){
    $(".filter").animate({"right":"0px"},{duration:1000})
-   $("#searching").animate({"right":"160px"},{duration:1000});
+   $("#searching").animate({"right":"180px"},{duration:1000});
    $('#toleft2').attr('data-click-state', 0);
    /*$("#search").animate({"right":"160px"},{duration:1000})*/
 
