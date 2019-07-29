@@ -241,7 +241,7 @@ function toleft1(){
    $(".filter").animate({"right":"0px"},{duration:1000})
    $("#searching").animate({"right":"160px"},{duration:1000});
    $('#toleft2').attr('data-click-state', 0);
-   $("#search").animate({"right":"0px"},{duration:1000})
+   $("#search").animate({"right":"-20px"},{duration:1000})
  
 }
 function toleftdone(){
@@ -270,10 +270,7 @@ $("#toleft").on('click',function(){/*Települése kereső funkciói*/
    if($(this).attr('data-click-state') == 1) {
       $(this).attr('data-click-state', 0)
       toleft1();
-      /*document.querySelector("#search").focus();*/
-      $("#search").css({"position":"absolute"});
-      $("#search").css({"position":"absolute"});
- 
+      /*document.querySelector("#search").focus();*/ 
  
    }
    else {
