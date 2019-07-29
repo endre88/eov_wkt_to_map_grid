@@ -25,7 +25,7 @@
       <div id="EOV">
          <label for="uname">EOV WKT :  </label>
 
-         <textarea rows="5" cols="50" id="uname" maxlength="60000" placeholder="POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))" onclick="this.select()" data-toggle="tooltip" data-placement="right" title="Az alábbi mezőben add meg a jelzett formátumban a polygont:">POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))</textarea>
+         <textarea rows="5" cols="50" id="uname" maxlength="60000" placeholder="POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))" onclick="this.select()" data-toggle="tooltip" data-placement="left" title="Az alábbi mezőben add meg a jelzett formátumban a polygont:">POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2))</textarea>
       
       </div>
       <div id="gombok">
@@ -35,12 +35,12 @@
       </div>
       <div id="e-k">
          <div><label for="convert">Koordináta párok: </label>
-    <textarea rows="5" cols="50" id="convert"  data-toggle="tooltip" data-placement="right" title="A polygont koordináta párokra bontott stílusban itt találod (automatikusan másolódik kattintást követően):" onclick="this.select(); document.execCommand('copy')"></textarea>
+    <textarea rows="5" cols="50" id="convert"  data-toggle="tooltip" data-placement="left" title="A polygont koordináta párokra bontott stílusban itt találod (automatikusan másolódik kattintást követően):" onclick="this.select(); document.execCommand('copy')"></textarea>
          </div>
       </div>
       <div class="filter">         
          <div id="telepulesek_div">
-            <input autofocus type="text" id="search" name="search" onkeyup="filter()" autocomplete="off" placeholder="Település kereső" > 
+            <input type="text" id="search" name="search" onkeyup="filter()" autocomplete="off" placeholder="Település kereső" > 
          </div> 
          <div>
             <select id="telepulesek" size="10" ></select>
@@ -61,6 +61,6 @@
 <script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-<script  src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
