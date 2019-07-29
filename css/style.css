@@ -3,7 +3,7 @@
    font-size:15px;
    box-sizing:border-box;
 }
-
+ 
 body,html{
    width: 100%;
    height: 100%;
@@ -15,73 +15,72 @@ body,html{
 .tooltip { pointer-events: none;
     margin-right: 35px;
 }
-
+ 
 .fa-info-circle{
    font-size:20px;
 }
-
+ 
 #telepulesek_div div{
-      margin-bottom:10px;
-
+   margin-bottom:10px;
 }
-
+ 
 #telepulesek{
    width: 165px;
    height: 170px;
 }
-
+ 
 #search{
    width:16rem;
    border-radius:5px;
 }
-
+ 
 #telepulesek_div{
    margin:0;
 }
-
+ 
 .filter{
-   display:flex;
+   /*display:flex;*/
    flex-direction:column;
    margin:10px 3%;
    width:16rem;
-
+ 
 }
-
+ 
 .filter div{
     margin-bottom:10px;
 }
-
+ 
 textarea{ 
    /* will prevent resizing horizontally */
     min-width:100px;
     resize:horizontal;
     font-size:0.7em;
 }
-
-
-
+ 
+ 
+ 
 #map{
    height: 100%;
    padding:0%;
    padding-bottom:0px;
 }
-
+ 
 /*#egesz{
     display: grid;
     grid-template-columns:30fr 70fr;
     height: 100vh;
 }
-
+ 
 #r{
    margin-top:20px;
    display:grid;
    grid-template-rows: 12rem 5rem 11rem 13rem
 }*/
-
+ 
 #EOV{
    margin:0px 5px;
 }
-
+ 
 #e-k{
    margin:0px 5px;
 }
@@ -94,8 +93,8 @@ textarea{
     grid-gap:1rem; 
 }
 */
-
-
+ 
+ 
 /*@media all and (max-width:1250px) and (min-width:721px){
     #r{
         margin-top:20px;
@@ -114,7 +113,7 @@ textarea{
         max-width:150px;
 }
 }*/
-
+ 
 /*@media all and (max-width:720px){
     #egesz{
         display: grid;
@@ -138,9 +137,9 @@ textarea{
       overflow-y:scroll;
       -webkit-overflow-scrolling: touch;}
 }*/
-
+ 
 /*@media (min-width:768px){*/
-   #r{
+  #r{
       position:absolute;
       width:50%;
       z-index:9999;
@@ -150,23 +149,29 @@ textarea{
       border-radius:10px;
    }
    #map{
-      width:98%;
+      width:98vw;
       height:97vh;
       margin:5px auto;
       position:relative;
-      overflow:hidden;
+       
    }
-   
+    
    #EOV, #gombok,#e-k{
       top:150px;
       position:absolute;
       z-index:100;
       right:-450px;
    }
-   
+    
    #telepulesek{
       right:0px;
       display:none;
+   }
+ 
+   #search{
+      position:absolute;
+      right: -20px;
+      z-index:-999;
    }
    .filter{
       position:absolute;
@@ -214,7 +219,7 @@ textarea{
    #arrow1{
       color:white;
    }
-   
+    
    .fa-search, .fa-chevron-right{
       margin:0 5px 0 ;
       color:white;
