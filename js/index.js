@@ -241,6 +241,8 @@ function toleft1(){
    $(".filter").animate({"right":"0px"},{duration:1000})
    $("#searching").animate({"right":"160px"},{duration:1000});
    $('#toleft2').attr('data-click-state', 0);
+   $("#search").animate({"right":"0px"},{duration:1000})
+
 }
 function toleftdone(){
    $(".filter").animate({"right":"-165px"},{duration:1000})
