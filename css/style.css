@@ -170,7 +170,7 @@ textarea{
  
    #search{
       position:absolute;
-      right: -30px;
+      right: -20px;
       z-index:-999;
    }
    .filter{
