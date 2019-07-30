@@ -248,11 +248,11 @@ function toleftdone(){
    $(".filter").animate({"right":"-165px"},{duration:1000})
    $("#searching").animate({"right":"0px"},{duration:1000})
    $("#filter").css({"display":"none"});
-   $("#telepulesek").css({"display":"none"});
+   $("#telepulesek").css({"display":"none","top":"80px"});
    $('#search').val('');
    $("#search").animate({"right":"-20px"},{duration:1000})
 }
-function toleft2(){
+function toleft2done(){
    $("#EOV").animate({"right":"-450px"},{duration:1000})
    $("#gombok").animate({"right":"-450px"},{duration:1000})
    $("#e-k").animate({"right":"-450px"},{duration:1000})
@@ -260,11 +260,11 @@ function toleft2(){
    $('#toleft').attr('data-click-state', 0);
  
 }
-function toleft2done(){
+function toleft2(){
    $("#EOV").animate({"right":"0px"},{duration:1000})
    $("#e-k").animate({"right":"0px"},{duration:1000})
-   $("#gombok").animate({"right":"75px"},{duration:1000})
-   $("#EOV_slide").animate({"right":"280px"},{duration:1000})
+   $("#gombok").animate({"right":"45px"},{duration:1000})
+   $("#EOV_slide").animate({"right":"256px"},{duration:1000})
    }
     
 $("#toleft").on('click',function(){/*Települése kereső funkciói*/
@@ -280,18 +280,40 @@ $("#toleft").on('click',function(){/*Települése kereső funkciói*/
    }
 });
  
- 
+
+const search=document.querySelector('#search');
+const telepulesek=document.querySelector('#telepulesek');
+
+
+$('#search').on('keyup', function(event){
+   if (event.keyCode===40 || event.keyCode===40){
+   $('#telepulesek').focus()}
+}); 
+
+$('#search').on("click", function(){
+   search.focus();
+}); 
+
+telepulesek.addEventListener('keyup', function(event){
+   if (event.keyCode===13){
+      valogat();
+      filter();
+   }
+}); 
+
+
+
     
 $("#toleft2").on('click',function(){
     
    if($(this).attr('data-click-state') == 1) {
       $(this).attr('data-click-state', 0)
       /*$(#toleft2).attr('data-click-state', 0)*/
-      toleft2();
+      toleft2done();
    }
    else {
       $(this).attr('data-click-state', 1)
-      toleft2done();
+      toleft2();
    }
 });
  

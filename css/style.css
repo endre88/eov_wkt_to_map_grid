@@ -27,6 +27,9 @@ body,html{
 #telepulesek{
    width: 165px;
    height: 170px;
+   margin-top:25px;
+   border-top:none;
+   max-width:160px;
 }
  
 #search{
@@ -39,7 +42,7 @@ body,html{
 }
  
 .filter{
-   /*display:flex;*/
+   display:flex;
    flex-direction:column;
    margin:10px 3%;
    width:16rem;
@@ -160,7 +163,7 @@ textarea{
       top:150px;
       position:absolute;
       z-index:100;
-      right:-450px;
+      right:-470px;
    }
     
    #telepulesek{
@@ -224,7 +227,11 @@ textarea{
       margin:0 5px 0 ;
       color:white;
    }
-   a{
+   /a{
       border-right:solid black;
+   }
+   textarea{
+      max-width:250px;
+      min-width:250px;
    }
 /*}*/
