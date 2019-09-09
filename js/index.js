@@ -1,4 +1,3 @@
-
 //A legújabb openlayers formátumába át kéne írni a js-t.
  
 //A proj műveletet egy zárt függvény csinálja.
@@ -238,26 +237,31 @@ $( document ).ready(function() {
  
  
 function toleft1(){
-   $(".filter").animate({"right":"0px"},{duration:1000})
-   $("#searching").animate({"right":"160px"},{duration:1000});
+   /*$(".filter").animate({"right":"0px"},{duration:1000})*/
+   $("#searching").animate({"right":"300px"},{duration:1000});
    $('#toleft2').attr('data-click-state', 0);
-   $("#search").animate({"right":"0px"},{duration:1000})
-
+   /*$("#search").animate({"right":"0px"},{duration:1000});*/
+   
+   $(".hatter").animate({"right":"0px"},{duration:1000});
 }
 function toleftdone(){
-   $(".filter").animate({"right":"-165px"},{duration:1000})
-   $("#searching").animate({"right":"0px"},{duration:1000})
-   $("#filter").css({"display":"none"});
-   $("#telepulesek").css({"display":"none","top":"80px"});
-   $('#search').val('');
-   $("#search").animate({"right":"-20px"},{duration:1000})
+   /*$(".filter").animate({"right":"-165px"},{duration:1000});*/
+   $("#searching").animate({"right":"0px"},{duration:1000});
+   $(".hatter").animate({"right":"-420px"},{duration:1000});
+
+   /*$("#filter").css({"display":"none"});*/
+   /*$("#telepulesek").css({"display":"none","top":"80px"});
+   $('#search').val('');*/
+   /*$("#search").animate({"right":"-20px"},{duration:1000});*/
 }
-function toleft2done(){
-   $("#EOV").animate({"right":"-450px"},{duration:1000})
-   $("#gombok").animate({"right":"-450px"},{duration:1000})
-   $("#e-k").animate({"right":"-450px"},{duration:1000})
+/*function toleft2done(){
+   $("#EOV").animate({"right":"-450px"},{duration:1000});
+   $("#gombok").animate({"right":"-450px"},{duration:1000});
+   $("#e-k").animate({"right":"-450px"},{duration:1000});
    $("#EOV_slide").animate({"right":"0px"},{duration:1000});
    $('#toleft').attr('data-click-state', 0);
+   
+   $(".hatter").animate({"right":"0px"},{duration:1000});
  
 }
 function toleft2(){
@@ -265,7 +269,7 @@ function toleft2(){
    $("#e-k").animate({"right":"0px"},{duration:1000})
    $("#gombok").animate({"right":"45px"},{duration:1000})
    $("#EOV_slide").animate({"right":"256px"},{duration:1000})
-   }
+   }*/
     
 $("#toleft").on('click',function(){/*Települése kereső funkciói*/
    if($(this).attr('data-click-state') == 1) {
@@ -322,7 +326,8 @@ $("#toleft2").on('click',function(){
     
     
 $("#search").on('change keyup paste',function(){
-   $("#valogat").css({"display":"block"});
+   $("#valogat").css({"display":"block"})
+   $("#filter").css({"top":"200px"})
 });
  
     
