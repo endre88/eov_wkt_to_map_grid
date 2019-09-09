@@ -2,6 +2,7 @@
    font-family:arial;
    font-size:15px;
    box-sizing:border-box;
+   color:black;
 }
  
 body,html{
@@ -11,6 +12,7 @@ body,html{
    margin: 0;
    overflow-x: hidden;
    overflow-y:hidden;
+   z-index:2;
 }
 .tooltip { pointer-events: none;
     margin-right: 35px;
@@ -143,7 +145,7 @@ textarea{
  
 /*@media (min-width:768px){*/
   #r{
-      position:absolute;
+      /*position:absolute;*/
       width:50%;
       z-index:9999;
    }
@@ -156,24 +158,26 @@ textarea{
       height:97vh;
       margin:5px auto;
       position:relative;
-       
    }
     
    #EOV, #gombok,#e-k{
-      top:150px;
       position:absolute;
+      top:50px;
       z-index:100;
-      right:-470px;
+      right:0px;
    }
     
    #telepulesek{
-      right:0px;
-      display:none;
+      position:absolute;
+      right:-2px;
+      top:2px;
+      display:;
    }
  
    #search{
-      position:absolute;
-      right: -20px;
+      top: 300px;
+      right:220px;
+      width:163px;
       z-index:-999;
    }
    .filter{
@@ -181,44 +185,66 @@ textarea{
       margin:0;
       padding:0;
       z-index:300;
-      right:-165px;
+      right:95px;
       top:10px;
    }
    #filter{
-      display:none;
+      //display:none;
+      top:200px;
+      position:absolute;
+
    }
    #valogat{
-      display:none;
+      //display:none;
    }
    #gombok{
-      top:260px;
+      top:535px;
+      right:50px;
    }
+#gomb i{
+      color:white;
+
+}
    #e-k{
-      top:160px;
+      top:390px;
+      left:40px;
+
    }
    #EOV{
-      top:50px;
+      top:250px;
+      left:40px;
    }
    #searching{
       position:absolute;
       z-index:300;
-      top:11px;
+      top:22px;
       right:0px;
       border:1px solid black;
       padding:1px;
       background-color:#44aaff;
-      color:white;
+      color:black;
    }
    #EOV_slide{
-      position:absolute;
       z-index:300;
-      top:50px;
-      right:0px;
       border:1px solid black;
       padding:3px 6px;
       background-color:#44aaff;
-      color:white;
+      color:black;
    }
+   .hatter{
+      position:absolute;
+      z-index:1;
+      top:10px;
+      border:1px solid black;
+      padding:3px 6px;
+      background-color:rgba(122,122,222,0.3);
+      color:black;
+      width:300px;
+      height:600px;
+      max-height:600px;
+      border-radius: 15px 1px 1px 15px;
+      right:-320px;
+}
    #arrow1{
       color:white;
    }
