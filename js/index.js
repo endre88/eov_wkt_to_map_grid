@@ -1,11 +1,6 @@
-//A legújabb openlayers formátumába át kéne írni a js-t.
- 
-//A proj műveletet egy zárt függvény csinálja.
- 
-// koordinátát írja ki az egér mozgatásra.
- 
- 
- 
+
+//projekció definiálás 23700 magyarországi EOV vetület
+//A 4326-os koordináta rendszerből kerülnek átalakításra értékek.
 var myProjectionName = "EPSG:23700";
 proj4.defs(
 myProjectionName,
@@ -13,8 +8,10 @@ myProjectionName,
 );
 var source = new proj4.Proj("EPSG:23700");
 var dest = new proj4.Proj("EPSG:4326");
- 
- 
+
+
+/*--------------------------------------------- Térképi elemek definiálása -------------------------------------*/ 
+
 var osmLayer = new ol.layer.Tile({
           source: new ol.source.OSM(),
           opacity: 1,
@@ -24,6 +21,7 @@ var osmLayer = new ol.layer.Tile({
           center: ol.proj.transform([19.3, 47.2], 'EPSG:4326', 'EPSG:3857'),
           zoom: 8
         });
+// A térkép alaphelyzetésnek nagyítási, illetve központi helyzete  
  
         var map = new ol.Map({
           target: "map"
@@ -34,29 +32,26 @@ var osmLayer = new ol.layer.Tile({
  
  
 //A gombra kattintás során elindul az átalakítás a beírt Polygon((x1 y1, x2 y2, x3 y3,....)) érték alapján
-document.getElementById('gomb').addEventListener("click", alakito) /*   var value =  
-  //Javítva getelementbyID-ra és addeventlistenerrel megoldva natív JS
+document.getElementById('gomb').addEventListener("click", alakito)
  
 /*--------------------------------------------------------------------------------*/
- 
+// Oldal újratöltés 
 $("#uname").on("change keyup paste", function() {
 });
 $("#refresh").on("click", function() {
-   /*var elem = document.getElementById('map');
- elem.parentNode.removeChild(elem);*/
    window.location.reload(true);
 });
  
-//$('[data-toggle="tooltip"]').tooltip().animate(fadeIn(1500));  //bootstrap tooltip js
+// koordinátát mutatja a felüelten
 $(".map").on('mousemove', function (e){
             str="Északi-szélesség: "+e.latlng.lat.toFixed(5)+" Keleti-hosszúság: "+e.latlng.lng.toFixed(5)+" Nagyítás szint: "+mymap.getZoom();
           $("#coord").html(str);
 document.getElementById("#coord").innerHTML = str});
  
- 
+//adatok kinyerése a telepulesek json fájlból, hozzáadása a legördülő menüpont
 var url="https://raw.githubusercontent.com/endre88/eov_wkt_to_map_grid/master/telepulesek_WKT_no_geometry_full.json";
 var $select = $('#telepulesek');
-$.getJSON(url,//     https://api.myjson.com/bins/15sl2k     abc sorrendű json (http://novicelab.org/jsonabc/) https://api.myjson.com/bins/8ss1c
+$.getJSON(url,//     
 function (data) {
   $select.html('');
     var result = data.features;
@@ -65,25 +60,22 @@ function (data) {
            $select.append('<option id="'+result[i].properties.GEOM+ '">' +result[i].properties.NAME+'</option>');
           }
       });
- 
-function valogat(){ //geom kinyerése
+/*------------------------------------------------ geom kinyerése --------------------------------------------*/
+function valogat(){ 
    console.clear();
    var ch=document.getElementById("telepulesek").value
    console.log(ch);
-    
    var url="https://raw.githubusercontent.com/endre88/eov_wkt_to_map_grid/master/telepulesek_WKT_no_geometry_full.json";
-$.getJSON(url,//     https://api.myjson.com/bins/15sl2k     abc sorrendű json (http://novicelab.org/jsonabc/) https://api.myjson.com/bins/8ss1c
+$.getJSON(url,
  function (data) {
    var geom="";
     var result = data.features;
         for (var i = 0; i < result.length; i++) {
-           //console.log(result[i].properties);
            if (ch===result[i].properties.NAME){
            geom += result[i].properties.GEOM;}
           }
    document.getElementById("uname").value=geom;
    alakito();
-   //$("#convert").html(geom);
       });
 }
  
@@ -101,6 +93,7 @@ function filter() {
     }
 }
  
+  /* --------------------------------------------Koordináta konvertálás ---------------------------------------------------*/
 function alakito(){
    var value = document.getElementById("uname").value;
    var s = value.replace(/\n/g, " ");
@@ -231,52 +224,25 @@ function alakito(){
 */
 /*Átírni sima js-be addeventlistenerekkel
 Jobb oldali menük beúszása*/
- 
+/*------------------------------------------------Animáció  a menükhöz ---------------------------------------------------------*/ 
  
 $( document ).ready(function() {
- 
- 
+
 function toleft1(){
-   /*$(".filter").animate({"right":"0px"},{duration:1000})*/
    $("#searching").animate({"right":"300px"},{duration:1000});
    $('#toleft2').attr('data-click-state', 0);
-   /*$("#search").animate({"right":"0px"},{duration:1000});*/
-   
    $(".hatter").animate({"right":"0px"},{duration:1000});
 }
 function toleftdone(){
-   /*$(".filter").animate({"right":"-165px"},{duration:1000});*/
    $("#searching").animate({"right":"0px"},{duration:1000});
    $(".hatter").animate({"right":"-420px"},{duration:1000});
+}
 
-   /*$("#filter").css({"display":"none"});*/
-   /*$("#telepulesek").css({"display":"none","top":"80px"});
-   $('#search').val('');*/
-   /*$("#search").animate({"right":"-20px"},{duration:1000});*/
-}
-/*function toleft2done(){
-   $("#EOV").animate({"right":"-450px"},{duration:1000});
-   $("#gombok").animate({"right":"-450px"},{duration:1000});
-   $("#e-k").animate({"right":"-450px"},{duration:1000});
-   $("#EOV_slide").animate({"right":"0px"},{duration:1000});
-   $('#toleft').attr('data-click-state', 0);
-   
-   $(".hatter").animate({"right":"0px"},{duration:1000});
- 
-}
-function toleft2(){
-   $("#EOV").animate({"right":"0px"},{duration:1000})
-   $("#e-k").animate({"right":"0px"},{duration:1000})
-   $("#gombok").animate({"right":"45px"},{duration:1000})
-   $("#EOV_slide").animate({"right":"256px"},{duration:1000})
-   }*/
     
 $("#toleft").on('click',function(){/*Települése kereső funkciói*/
    if($(this).attr('data-click-state') == 1) {
       $(this).attr('data-click-state', 0)
       toleft1();
-      /*document.querySelector("#search").focus();*/ 
- 
    }
    else {
    $(this).attr('data-click-state', 1)
@@ -312,7 +278,6 @@ $("#toleft2").on('click',function(){
     
    if($(this).attr('data-click-state') == 1) {
       $(this).attr('data-click-state', 0)
-      /*$(#toleft2).attr('data-click-state', 0)*/
       toleft2done();
    }
    else {
