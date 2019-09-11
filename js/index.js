@@ -64,7 +64,7 @@ function (data) {
 function valogat(){ 
    console.clear();
    var ch=document.getElementById("telepulesek").value
-   console.log(ch);
+   
    var url="https://raw.githubusercontent.com/endre88/eov_wkt_to_map_grid/master/telepulesek_WKT_no_geometry_full.json";
 $.getJSON(url,
  function (data) {
@@ -99,14 +99,13 @@ function alakito(){
    var s = value.replace(/\n/g, " ");
    var t = s.replace(/,/g, "\n");
    var z = t.substring(9, t.length - 2);
-   console.log(s);
-   console.log(z);
+   
    var str = s.substring(9, s.length - 2);
    var coord1 = str.split(",");
    // for ciklus szétszedés
    for (var i = 0; i < coord1.length; i++) {
       coord1[i] = coord1[i].split(" ");
-      console.log(coord1[i]); //új
+      
    }
    var text = "";
    $("#convert").html(z);
@@ -118,9 +117,7 @@ function alakito(){
    var s = "POLYGON((";
    for (var j = 0; j < coord1.length; j++) {
       nagy+= parseInt(coord1[j][0])+" ";
-      console.log(nagy.substring(0, nagy.length-1));
       kis+= parseInt(coord1[j][1])+" ";
-      console.log(kis.substring(0, kis.length-1));
         // text += coord1[i] + ","
       //text=array.push(coord1[i]);
       var p = new proj4.Point(
@@ -128,13 +125,9 @@ function alakito(){
          parseFloat(coord1[j][1])
       );
       var nagyarray=nagy.split(" ").map(Number);
-      console.log(nagyarray);
       ossz=nagyarray.slice(0,nagyarray.length-1);
-      console.log(ossz);
       var kisarray=kis.split(" ").map(Number);
-      console.log(kisarray);
       ossz1=kisarray.slice(0,kisarray.length-1);
-      console.log(ossz1);
          proj4.transform(source, dest, p);
       s += "," + p.x + " " + p.y;
    }
@@ -152,9 +145,7 @@ function alakito(){
    proj4.transform(source, dest, kk);
    var kkk="";   
    kkk+= kk.x +"," +kk.y;
-   console.log(kkk);
    var wkt = s.replace(",", "");
-   console.log(wkt);
     
    //polygon hozzáadása a már meglévő térképhez
    var format = new ol.format.WKT();
@@ -163,7 +154,6 @@ function alakito(){
       featureProjection: "EPSG:3857"
    });
    var hun = [kk.x, kk.y];
-   console.log(hun);
    var countryStyle = new ol.style.Style({
         fill: new ol.style.Fill({
           color: [Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), 0.5]
