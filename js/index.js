@@ -95,89 +95,55 @@ function filter() {
  
   /* --------------------------------------------Koordináta konvertálás ---------------------------------------------------*/
 function alakito(){
-   var value = document.getElementById("uname").value;
-   var s = value.replace(/\n/g, " ");
-   var t = s.replace(/,/g, "\n");
-   var z = t.substring(9, t.length - 2);
-   
-   var str = s.substring(9, s.length - 2);
-   var coord1 = str.split(",");
-   // for ciklus szétszedés
-   for (var i = 0; i < coord1.length; i++) {
-      coord1[i] = coord1[i].split(" ");
-      
-   }
-   var text = "";
-   $("#convert").html(z);
-   //POLYGON((493707.2 251150.2,493654 250833.8,493967.6 250822.6,494012.4 251060.6,493707.2 251150.2)) teszt WKT
-   var ossz;
-   var ossz1;
-   var kis="";
-   var nagy="";
-   var s = "POLYGON((";
-   for (var j = 0; j < coord1.length; j++) {
-      nagy+= parseInt(coord1[j][0])+" ";
-      kis+= parseInt(coord1[j][1])+" ";
-        // text += coord1[i] + ","
-      //text=array.push(coord1[i]);
-      var p = new proj4.Point(
-         parseFloat(coord1[j][0]),
-         parseFloat(coord1[j][1])
-      );
-      var nagyarray=nagy.split(" ").map(Number);
-      ossz=nagyarray.slice(0,nagyarray.length-1);
-      var kisarray=kis.split(" ").map(Number);
-      ossz1=kisarray.slice(0,kisarray.length-1);
-         proj4.transform(source, dest, p);
-      s += "," + p.x + " " + p.y;
-   }
-   s += "))";
-   var f=Math.max.apply(null,ossz); //új
-   var g=Math.max.apply(null,ossz1); //új
-   var h=Math.min.apply(null,ossz); //új
-   var i=Math.min.apply(null,ossz1); //új
-   var kknagy=(f+h)/2;
-   var kkkis=(g+i)/2;
-   var kk = new proj4.Point(
-         parseFloat(kknagy),
-         parseFloat(kkkis)
-   );
-   proj4.transform(source, dest, kk);
-   var kkk="";   
-   kkk+= kk.x +"," +kk.y;
-   var wkt = s.replace(",", "");
+    var value = document.getElementById("uname").value;
+    if (!value) return;
+
+    // Csak tisztítjuk a szöveget, de NEM konvertáljuk át a proj4-gyel egyesével, 
+    // mert az OpenLayers WKT olvasója (a proj4 regisztrációval) ezt megteszi automatikusan.
     
-   //polygon hozzáadása a már meglévő térképhez
-   var format = new ol.format.WKT();
-   var feature = format.readFeature(wkt, { //wkt input
-      dataProjection: "EPSG:4326",
-      featureProjection: "EPSG:3857"
-   });
-   var hun = [kk.x, kk.y];
-   var countryStyle = new ol.style.Style({
-        fill: new ol.style.Fill({
-          color: [Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), 0.5]
-        }),
-      stroke: new ol.style.Stroke({
-          color: [Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), 1],
-          width: 3
-      })
-      });
-   var hunweb = ol.proj.fromLonLat(hun);
-   var vector = new ol.layer.Vector({
-      source: new ol.source.Vector({
-         features: [feature],
-         target: "map"
-      }),
-      style: countryStyle
-   });
-     var view2= new ol.View({
-          center: hunweb,
-          zoom: 12
-     });
+    // Tegyük fel, hogy a bemenet EOV WKT (pl. POLYGON((x y, x y, ...)))
+    // Ha a bemenet már eleve EPSG:4326 vagy EOV, igazítsuk hozzá a dataProjection értéket.
     
-   map.addLayer(vector);
-   map.setView(view2);
+    var format = new ol.format.WKT();
+    
+    // Fontos: regisztrálni kell a proj4-et az OpenLayers számára, hogy ismerje az EPSG:23700-at:
+    // ol.proj.proj4.register(proj4); (ha még nincs fentebb meghívva)
+
+    try {
+        var feature = format.readFeature(value, {
+            dataProjection: "EPSG:23700", // Jelöljük meg, hogy a bemenő WKT milyen vetületű
+            featureProjection: "EPSG:3857" // A webes térkép vetülete
+        });
+
+        var countryStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), 0.5]
+            }),
+            stroke: new ol.style.Stroke({
+                color: [Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), Math.floor((Math.random() * 254) + 1), 1],
+                width: 3
+            })
+        });
+
+        feature.setStyle(countryStyle);
+
+        var vectorSource = new ol.source.Vector({
+            features: [feature]
+        });
+
+        var vector = new ol.layer.Vector({
+            source: vectorSource
+        });
+
+        map.addLayer(vector);
+
+        // Középre igazítás apolygon sajátextentje (határai) alapján
+        var extent = vectorSource.getExtent();
+        map.getView().fit(extent, { padding: [50, 50, 50, 50], maxZoom: 14 });
+
+    } catch (e) {
+        console.error("Hiba a WKT feldolgozása közben: ", e);
+    }
 }
  
  
